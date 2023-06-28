@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <exception>
 #include "../Library/List.h"
 #include "../Models/Telefono.h"
 
@@ -34,6 +35,16 @@ public:
             }
         }
         return telefonosEncontrados;
+    }
+
+    Telefono& buscarTelefono(const unsigned int numero) {
+        for(int i = 0; i < telefonos.size(); i++) {
+            if(telefonos[i].getNumero == numero) {
+                return telefono[i];
+            }
+        }
+
+        throw runtime_error("No se encontro el telefono solicitado");
     }
 
     void guardarTelefonoEnArchivo(const Telefono& telefono) {

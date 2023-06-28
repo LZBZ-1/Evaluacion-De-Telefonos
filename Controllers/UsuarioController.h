@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <exception>
 #include "../Library/List.h"
 #include "../Models/Usuario.h"
 
@@ -26,6 +27,16 @@ public:
             cout << i << ". " << usuario.getNumeroTelefono()[i] << endl;
         }
         cout << endl;
+    }
+
+    Usuario& buscarUsuario(const unsigned int dni) {
+        for(int i = 0; i < usuarios.size(); i++) {
+            if (usuarios[i].getDni() == dni) {
+                return usuarios[i];
+            }
+        }
+
+        throw runtime_error("No se encontro un usuario con el DNI especificado");
     }
 
     int buscarDniPorTelefono(unsigned int numeroTelefono) {
@@ -96,7 +107,7 @@ public:
                 unsigned int dni = stoi(dato);
 
                 // Obtener Nombre y Apellido
-                getline(ss, dato, ',');
+                getline(ss, dato, '');
                 string nombreApellido = dato;
 
                 // Crear usuario y agregarlo a la lista
