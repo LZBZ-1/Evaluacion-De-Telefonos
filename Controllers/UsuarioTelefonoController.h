@@ -7,5 +7,9 @@
 using namspace std;
 
 class UsuarioTelefonoController {
+private:
+	List<Usuario> usuarios;
+	List<Telefono> telefonos;
+public:
 	
 };

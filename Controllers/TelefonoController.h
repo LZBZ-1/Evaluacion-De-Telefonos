@@ -15,6 +15,7 @@ public:
 
     void agregarTelefono(const Telefono& telefono) {
         telefonos.push_back(telefono);
+        guardarTelefonoEnArchivo(telefono);
     }
 
     void mostrarTelefono(const Telefono& telefono) {

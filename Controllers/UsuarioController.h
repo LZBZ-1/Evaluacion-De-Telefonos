@@ -21,6 +21,10 @@ public:
     void mostrarUsuarios(const auto& usuario) {
         cout << "DNI: " << usuario.getDni() << endl;
         cout << "Nombre y Apellido: " << usuario.getNombreApellido() << endl;
+        cout << "Sus lineas telefonicas son: " << endl;
+        for(int i = 0; i < usuario.getNumeroTelefono().size(); i++) {
+            cout << i << ". " << usuario.getNumeroTelefono()[i] << endl;
+        }
         cout << endl;
     }
 
