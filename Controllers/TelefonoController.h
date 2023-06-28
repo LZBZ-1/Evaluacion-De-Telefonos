@@ -52,7 +52,7 @@ public:
 
     void guardarTelefonoEnArchivo(const Telefono& telefono) {
         const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\telefono.csv";
-        ofstream archivo(nombreArchivo);
+        ofstream archivo(nombreArchivo, ios_base::app);
         if (archivo.is_open()) {
             // Escribir datos del teléfono
             archivo << telefono.getNumero() << "," << telefono.getActivo() << ","

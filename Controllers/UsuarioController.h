@@ -57,7 +57,7 @@ public:
 
     void guardarUsuarioEnArchivo(const Usuario& usuario) {
         const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuario.csv";
-        ofstream archivo(nombreArchivo);
+        ofstream archivo(nombreArchivo, ios_base::app);
         if (archivo.is_open()) {
             // Escribir datos del usuario
             archivo << usuario.getDni() << "," << usuario.getNombreApellido();
