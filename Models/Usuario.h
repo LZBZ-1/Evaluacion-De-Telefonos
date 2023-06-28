@@ -16,6 +16,17 @@ public:
     // Destructor
     ~Usuario() = default;
 
+    Usuario& operator=(const Usuario& other) {
+        if (this != &other) {
+            numeroTelefono.clear();  // Clear the destination list
+            for (int i = 0; i < other.numeroTelefono.size(); ++i) {
+                numeroTelefono.push_back(other.numeroTelefono[i]);  // Copy each element
+            }
+            // ... copy other member variables ...
+        }
+        return *this;
+    }
+
     // Constructor con todos los datos
     Usuario(unsigned int dni, const string& nombreApellido, List<unsigned int>& numeroTelefono) {
             this->dni = dni;
