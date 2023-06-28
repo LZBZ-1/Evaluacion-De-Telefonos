@@ -1,11 +1,9 @@
 #include <iostream>
-#include "./Controllers/UsuarioController.h"
-#include "./Controllers/TelefonoController.h"
-#include "./Controllers/UsuarioTelefonoController.h"
+#include "./Views/TelefonoVista.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-	
+	mostrarTitular(987654329);
 	return 0;
 }

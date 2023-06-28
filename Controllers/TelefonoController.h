@@ -1,6 +1,8 @@
 #pragma once
+
 #include <iostream>
 #include <fstream>
+#include <string>
 #include <exception>
 #include "../Library/List.h"
 #include "../Models/Telefono.h"
@@ -49,7 +51,7 @@ public:
     }
 
     void guardarTelefonoEnArchivo(const Telefono& telefono) {
-        const string nombreArchivo = "../Data/telefono.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\telefono.csv";
         ofstream archivo(nombreArchivo);
         if (archivo.is_open()) {
             // Escribir datos del teléfono
@@ -64,7 +66,7 @@ public:
     }
 
     void actualizarArchivoCSV() {
-        const string nombreArchivo = "../Data/telefono.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\telefono.csv";
         ofstream archivo(nombreArchivo);
         if (archivo.is_open()) {
             // Escribir encabezados de columna
@@ -84,7 +86,7 @@ public:
     }
 
     void cargarTelefonosDesdeArchivo() {
-        const string nombreArchivo = "../Data/telefono.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\telefono.csv";
         telefonos.clear();
 
         ifstream archivo(nombreArchivo);
@@ -121,7 +123,7 @@ public:
             }
 
             archivo.close();
-            cout << "Datos de teléfonos cargados desde " << nombreArchivo << endl;
+            cout << "Datos de telefonos cargados desde " << nombreArchivo << endl;
         } else {
             cout << "Error al abrir el archivo " << nombreArchivo << endl;
         }

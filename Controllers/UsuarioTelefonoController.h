@@ -1,6 +1,9 @@
 #pragma once
+
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <string>
 #include "../Library/List.h"
 #include "../Models/Telefono.h"
 #include "../Models/Usuario.h"
@@ -11,8 +14,8 @@ using namespace std;
 
 class UsuarioTelefonoController {
 public:
-	static void cargarNumeros(UsuarioController& usuarios, TelefonoController& telefonos) {
-		const string nombreArchivo = "../Data/usuarioTelefono.csv";
+	void cargarNumeros(UsuarioController& usuarios, TelefonoController& telefonos) {
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuarioTelefono.csv";
 		ifstream archivo(nombreArchivo);
         if (archivo.is_open()) {
             // Leer encabezados de columna
@@ -44,7 +47,7 @@ public:
             }
 
             archivo.close();
-            cout << "Datos de usuarios cargados desde " << nombreArchivo << endl;
+            cout << "Datos de control cargados desde " << nombreArchivo << endl;
         } else {
             cout << "Error al abrir el archivo " << nombreArchivo << endl;
         }

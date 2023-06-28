@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../Library/List.h"
 #include <memory>
 
@@ -22,7 +23,8 @@ public:
             for (int i = 0; i < other.numeroTelefono.size(); ++i) {
                 numeroTelefono.push_back(other.numeroTelefono[i]);  // Copy each element
             }
-            // ... copy other member variables ...
+            this->dni = other.getDni();
+            this->nombreApellido = other.getNombreApellido();
         }
         return *this;
     }

@@ -1,4 +1,5 @@
 #pragma once
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -27,7 +28,7 @@ public:
         cout << "Nombre y Apellido: " << usuario.getNombreApellido() << endl;
         cout << "Sus lineas telefonicas son: " << endl;
         for(int i = 0; i < usuario.getNumeroTelefono().size(); i++) {
-            cout << i << ". " << usuario.getNumeroTelefono()[i] << endl;
+            cout << i+1 << ". " << usuario.getNumeroTelefono()[i] << endl;
         }
         cout << endl;
     }
@@ -55,7 +56,7 @@ public:
     }
 
     void guardarUsuarioEnArchivo(const Usuario& usuario) {
-        const string nombreArchivo = "../Data/usuario.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuario.csv";
         ofstream archivo(nombreArchivo);
         if (archivo.is_open()) {
             // Escribir datos del usuario
@@ -70,7 +71,7 @@ public:
     }
 
     void actualizarArchivoCSV() {
-        const string nombreArchivo = "../Data/usuario.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuario.csv";
         ofstream archivo(nombreArchivo);
         if (archivo.is_open()) {
             // Escribir encabezados de columna
@@ -90,7 +91,7 @@ public:
     }
 
     void cargarUsuariosDesdeArchivo() {
-        const string nombreArchivo = "../Data/usuario.csv";
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuario.csv";
         usuarios.clear();
 
         ifstream archivo(nombreArchivo);
