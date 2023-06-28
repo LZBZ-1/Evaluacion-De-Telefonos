@@ -13,6 +13,7 @@ int main() {
     string operador;
     string nombre;
     string plan;
+    string apellido;
     Telefono telefono;
     Usuario usuario;
     usuarios.cargarUsuariosDesdeArchivo();
@@ -71,15 +72,14 @@ int main() {
             						cout << "DNI No Valida." << endl;
         						}
     						} while (dni < 10000000 || dni > 99999999);
-    						cout << "Ingrese su Nombre: " << endl;
-    						getline(cin, nombre, '\n');
+    						cout << "Ingrese su Nombre: ";
+    						cin >> nombre;
+    						cout << "Ingrese su apellido: ";
+    						cin >> apellido;
+    						nombre += " " + apellido;
     						usuario.setDni(dni);
     						usuario.setNombreApellido(nombre);
     						agregarUsuario(usuario);
-    						if (!(usuarios.buscarUsuario(dni).getNombreApellido() == nombre)) {
-    							cout << "Nombre no coindice";
-    							break;
-    						}
     						cout << "Indique el nombre del operador: ";
     						cin >> operador;
     						cout << "Ingrese el tipo de Plan: ";
@@ -139,7 +139,6 @@ int main() {
                             break;
                     }
                 } while (opcionSubMenu != 6);
-
                 break;
             case 2:
                 do {
@@ -161,7 +160,10 @@ int main() {
         						}
     						} while (dni < 10000000 || dni > 99999999);
     						cout << "Ingrese su Nombre: ";
-    						getline(cin, nombre, '\n');
+    						cin >> nombre;
+    						cout << "Ingrese su apellido: ";
+    						cin >> apellido;
+    						nombre += " " + apellido;
     						usuario.setDni(dni);
     						usuario.setNombreApellido(nombre);
     						agregarUsuario(usuario);

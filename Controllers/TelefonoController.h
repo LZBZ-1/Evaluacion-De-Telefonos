@@ -117,7 +117,7 @@ public:
 
                 // Obtener Activo
                 getline(ss, dato, ',');
-                bool activo = (dato == "true");
+                bool activo = (dato == "true" || dato == "1");
 
                 // Obtener Operadora
                 getline(ss, dato, ',');
