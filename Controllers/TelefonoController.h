@@ -17,4 +17,14 @@ public:
         cout << "Tipo de Plan: " << telefono.getTipoPlan() << endl;
         cout << endl;
     }
+
+    List<Telefono> buscarTelefonosPorDni(int dni) {
+        List<Telefono> telefonosEncontrados;
+        for (const auto& telefono : telefonos) {
+            if (telefono.getDniUsuario() == dni) {
+                telefonosEncontrados.push_back(telefono);
+            }
+        }
+        return telefonosEncontrados;
+    }
 };

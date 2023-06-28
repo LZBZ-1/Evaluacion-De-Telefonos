@@ -15,4 +15,16 @@ public:
         cout << "Nombre y Apellido: " << usuario.getNombreApellido() << endl;
         cout << endl;
     }
+
+    int buscarDniPorTelefono(unsigned int numeroTelefono) {
+        for (const auto& usuario : usuarios) {
+            const list<unsigned int>& numeros = usuario.getNumeroTelefono();
+            for (const auto& numero : numeros) {
+                if (numero == numeroTelefono) {
+                    return usuario.getDni();
+                }
+            }
+        }
+        return -1; // Retornar -1 si no se encuentra el número de teléfono
+    }
 };
