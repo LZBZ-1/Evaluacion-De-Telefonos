@@ -1,3 +1,6 @@
+#include "../Library/List"
+#include "../Models/Usuario"
+
 class UsuarioController {
 private:
     list<Usuario> usuarios;

@@ -1,4 +1,5 @@
-#include "#include ../Library/List"
+#include "../Library/List"
+#include "../Models/Telefono"
 
 class TelefonoController {
 private:
