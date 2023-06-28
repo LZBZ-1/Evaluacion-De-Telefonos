@@ -15,7 +15,7 @@ public:
     TelefonoController() = default;
     ~TelefonoController() = default;
 
-    void agregarTelefono(const Telefono& telefono) {
+    void agregarTelefono(Telefono& telefono) {
         telefonos.push_back(telefono);
         guardarTelefonoEnArchivo(telefono);
     }
@@ -30,9 +30,9 @@ public:
 
     List<Telefono> buscarTelefonosPorDni(int dni) {
         List<Telefono> telefonosEncontrados;
-        for (const auto& telefono : telefonos) {
-            if (telefono.getDniUsuario() == dni) {
-                telefonosEncontrados.push_back(telefono);
+        for (int i = 0; i < telefonos.size(); i++) {
+            if (telefonos[i].getDniUsuario() == dni) {
+                telefonosEncontrados.push_back(telefonos[i]);
             }
         }
         return telefonosEncontrados;
@@ -40,8 +40,8 @@ public:
 
     Telefono& buscarTelefono(const unsigned int numero) {
         for(int i = 0; i < telefonos.size(); i++) {
-            if(telefonos[i].getNumero == numero) {
-                return telefono[i];
+            if(telefonos[i].getNumero() == numero) {
+                return telefonos[i];
             }
         }
 
@@ -71,9 +71,9 @@ public:
             archivo << "numero,activo,operadora,tipoPlan" << endl;
 
             // Escribir datos de teléfonos
-            for (const auto& telefono : telefonos) {
-                archivo << telefono.getNumero() << "," << telefono.getActivo() << ","
-                        << telefono.getOperadora() << "," << telefono.getTipoPlan() << endl;
+            for (int i = 0; i < telefonos.size(); i++) {
+                archivo << telefonos[i].getNumero() << "," << telefonos[i].getActivo() << ","
+                        << telefonos[i].getOperadora() << "," << telefonos[i].getTipoPlan() << endl;
             }
 
             archivo.close();

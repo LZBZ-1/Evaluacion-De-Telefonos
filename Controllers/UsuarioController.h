@@ -1,7 +1,9 @@
 #pragma once
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <exception>
+#include <sstream>
 #include "../Library/List.h"
 #include "../Models/Usuario.h"
 
@@ -15,7 +17,7 @@ public:
     UsuarioController() = default;
     ~UsuarioController() = default;
 
-    void agregarUsuario(Usuario& usuario) {
+    void agregarUsuario(Usuario usuario) {
         usuarios.push_back(usuario);
         guardarUsuarioEnArchivo(usuario);
     }
@@ -30,7 +32,7 @@ public:
         cout << endl;
     }
 
-    const Usuario& buscarUsuario(const unsigned int dni) {
+    Usuario& buscarUsuario(const unsigned int dni) {
         for(int i = 0; i < usuarios.size(); i++) {
             if (usuarios[i].getDni() == dni) {
                 return usuarios[i];
@@ -41,11 +43,11 @@ public:
     }
 
     int buscarDniPorTelefono(unsigned int numeroTelefono) {
-        for (const auto& usuario : usuarios) {
-            const List<unsigned int>& numeros = usuario.getNumeroTelefono();
-            for (const auto& numero : numeros) {
-                if (numero == numeroTelefono) {
-                    return usuario.getDni();
+        for (int i = 0; i < usuarios.size(); i++) {
+            const List<unsigned int>& numeros = usuarios[i].getNumeroTelefono();
+            for (int j = 0; j < numeros.size(); j++) {
+                if (numeros[j] == numeroTelefono) {
+                    return usuarios[i].getDni();
                 }
             }
         }
@@ -75,8 +77,8 @@ public:
             archivo << "dni,nombreApellido" << endl;
 
             // Escribir datos de usuarios
-            for (const auto& usuario : usuarios) {
-                archivo << usuario.getDni() << "," << usuario.getNombreApellido();
+            for (int i = 0; i < usuarios.size(); i++) {
+                archivo << usuarios[i].getDni() << "," << usuarios[i].getNombreApellido();
                 archivo << endl;
             }
 

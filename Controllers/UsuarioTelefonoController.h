@@ -7,7 +7,7 @@
 #include "UsuarioController.h"
 #include "TelefonoController.h"
 
-using namspace std;
+using namespace std;
 
 class UsuarioTelefonoController {
 public:
@@ -30,15 +30,15 @@ public:
                 unsigned int dni = stoi(dato);
 
                 // Obtener Numero
-                getline(ss, dato, '');
-                unsigned int numero = dato;
+                getline(ss, dato, '\n');
+                unsigned int numero = stoi(dato);
 
                 // Anadir un Numero al Usuario
-                Usuario& usuarioEncontrado = buscarUsuario(dni);
+                Usuario& usuarioEncontrado = usuarios.buscarUsuario(dni);
                 usuarioEncontrado.agregarNumeroTelefono(numero);
 
                 // Anadir un Usuario al Numero
-                Telefono& telefonoEncontrado = buscarTelefono(numero);
+                Telefono& telefonoEncontrado = telefonos.buscarTelefono(numero);
                 telefonoEncontrado.setDniUsuario(dni);
 
             }

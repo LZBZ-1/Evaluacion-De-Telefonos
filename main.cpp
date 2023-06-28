@@ -1,9 +1,9 @@
 #include <iostream>
 #include "./Controllers/UsuarioController.h"
 #include "./Controllers/TelefonoController.h"
-#include "./Controllers/usuarioTelefonoController.h"
+#include "./Controllers/UsuarioTelefonoController.h"
 
-using namspace std;
+using namespace std;
 
 int main(int argc, char const *argv[]) {
 	
