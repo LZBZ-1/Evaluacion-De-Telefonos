@@ -7,10 +7,18 @@ using namespace std;
 int main() {
     int opcionPrincipal;
     int opcionSubMenu;
+    int opcion;
+    unsigned int numero;
+    unsigned int dni;
+    string operador;
+    string nombre;
+    string plan;
+    Telefono telefono;
+    Usuario usuario;
 
     do {
         cout << "----- Menu Principal -----" << endl;
-        cout << "1. TelefonoVista" << endl;
+        cout << "1. Telefono" << endl;
         cout << "2. Usuarios" << endl;
         cout << "3. Salir" << endl;
         cout << "Ingrese su opcion: ";
@@ -27,71 +35,161 @@ int main() {
                     cout << "4. Desactivar Linea" << endl;
                     cout << "5. Activar Linea" << endl;
                     cout << "6. Volver al menu principal" << endl;
-                    cout << "Ingrese su opción: ";
+                    cout << "Ingrese su opcion: ";
                     cin >> opcionSubMenu;
 
                     switch (opcionSubMenu) {
                         case 1:
-                            unsigned int numero;
                             do {
         						cout << "Ingrese su numero ";
         						cin >> numero;
 
         						if (numero < 900000000 || numero > 999999999) {
-            						cout << "Número No Valida." << endl;
+            						cout << "Numero No Valida." << endl;
         						}
     						} while (numero < 900000000 || numero > 999999999);
 							mostrarTitular(numero);
                             break;
                         case 2:
-                            unsigned int numero;
-                            unsigned int dni
                             do {
-        						cout << "Ingrese el nuevo numero";
+        						cout << "Ingrese el nuevo numero: ";
         						cin >> numero;
 
         						if (numero < 900000000 || numero > 999999999) {
-            						cout << "Número No Valida." << endl;
+            						cout << "Numero No Valida." << endl;
         						}
     						} while (numero < 900000000 || numero > 999999999);
     						do {
-        						cout << "Ingrese el dni";
-        						cin >> numero;
+        						cout << "Ingrese el dni: ";
+        						cin >> dni;
 
-        						if (numero < 900000000 || numero > 999999999) {
-            						cout << "Número No Valida." << endl;
+        						if (numero < 10000000 || numero > 99999999) {
+            						cout << "DNI No Valida." << endl;
         						}
-    						} while (numero < 900000000 || numero > 999999999);
-    						agregarUsuario(dni);
-    						agregarTelefono(Telefono)
+    						} while (numero < 10000000 || numero > 99999999);
+    						cout << "Ingrese su Nombre: " << endl;
+    						getline(cin, nombre, '\n');
+    						usuario.setDni(dni);
+    						usuario.setNombreApellido(nombre);
+    						agregarUsuario(usuario);
+    						if (!(usuarios.buscarUsuario(dni).getNombreApellido() == nombre)) {
+    							cout << "Nombre no coindice";
+    							break;
+    						}
+    						cout << "Indique el nombre del operador: ";
+    						cin >> operador;
+    						cout << "Ingrese el tipo de Plan: ";
+    						cin >> plan;
+    						telefono.setNumero(numero);
+    						telefono.setActivo(true);
+    						telefono.setOperadora(operador);
+    						telefono.setTipoPlan(plan);
+    						telefono.setDniUsuario(dni);
+    						agregarTelefono(telefono);
+    						usuarios.cargarUsuariosDesdeArchivo();
+							telefonos.cargarTelefonosDesdeArchivo();
+							control.cargarNumeros(usuarios,telefonos);
                             break;
                         case 3:
-                            cout << "Ha seleccionado la Subopción 3." << endl;
+                            do {
+        						cout << "Ingrese su numero ";
+        						cin >> numero;
+
+        						if (numero <= 900000000 || numero >= 999999999) {
+            						cout << "Número No Valida." << endl;
+        						}
+    						} while (numero <= 900000000 || numero >= 999999999);
+							buscarOperador(numero);
                             break;
                         case 4:
-                            cout << "Ha seleccionado la Subopción 4." << endl;
+                            do {
+        						cout << "Ingrese su numero ";
+        						cin >> numero;
+
+        						if (numero <= 900000000 || numero >= 999999999) {
+            						cout << "Numero No Valida." << endl;
+        						}
+    						} while (numero <= 900000000 || numero >= 999999999);
+							desactivarLinea(numero);
                             break;
                         case 5:
-                            cout << "Volviendo al menú principal." << endl;
+                            do {
+        						cout << "Ingrese su numero ";
+        						cin >> numero;
+
+        						if (numero <= 900000000 || numero >= 999999999) {
+            						cout << "Numero No Valida." << endl;
+        						}
+    						} while (numero < 900000000 || numero > 999999999);
+							activarLinea(numero);
                             break;    
                         case 6:
-                            cout << "Volviendo al menú principal." << endl;
+                        	system("clear");
+                            cout << "Volviendo al menu principal." << endl;
+                            system("pause");
+                            system("clear");
                             break;
                         default:
-                            cout << "Opción inválida. Por favor, ingrese una opción válida." << endl;
+                        	system("clear");
+                            cout << "Opción invalida. Por favor, ingrese una opcion válida." << endl;
                             break;
                     }
                 } while (opcionSubMenu != 6);
 
                 break;
             case 2:
-                cout << "Ha seleccionado la Opción 2." << endl;
+                do {
+        			cout << "----- Menu -----" << endl;
+			        cout << "1. Crear usuario" << endl;
+			        cout << "2. Mostrar teléfono" << endl;
+			        cout << "3. Salir" << endl;
+        			cout << "Ingrese su opcion: ";
+        			cin >> opcion;
+
+			        switch (opcion) {
+			            case 1:
+			                do {
+        						cout << "Ingrese el dni: ";
+        						cin >> dni;
+
+        						if (numero < 10000000 || numero > 99999999) {
+            						cout << "DNI No Valida." << endl;
+        						}
+    						} while (numero < 10000000 || numero > 99999999);
+    						cout << "Ingrese su Nombre: ";
+    						getline(cin, nombre, '\n');
+    						usuario.setDni(dni);
+    						usuario.setNombreApellido(nombre);
+    						agregarUsuario(usuario);
+               				break;
+            			case 2:
+                			do {
+        						cout << "Ingrese el dni: ";
+        						cin >> dni;
+
+        						if (numero <= 10000000 || numero >= 99999999) {
+            						cout << "DNI No Valida." << endl;
+        						}
+    						} while (numero <= 10000000 || numero >= 99999999);
+    						mostrarLineas(dni);
+                			break;
+            			case 3:
+            				system("clear");
+                			cout << "Volviendo al menu principal." << endl;
+                            break;
+            			default:
+            				system("clear");
+                			cout << "Opción invalida. Por favor, ingrese una opción valida." << endl;
+                			break;
+        			}
+
+    			} while (opcion != 3);
                 break;
             case 3:
                 cout << "Saliendo del programa." << endl;
                 break;
             default:
-                cout << "Opcion inválida. Por favor, ingrese una opción valida." << endl;
+                cout << "Opcion invalida. Por favor, ingrese una opcion valida." << endl;
                 break;
         }
 
