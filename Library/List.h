@@ -40,7 +40,7 @@ public:
         return firstNode == nullptr;
     }
 
-    void push_back(U value) {
+    void push_back(U& value) {
         auto newNode = make_unique<Node<U>>();
         newNode->data = value;
         if (isEmpty()) {
@@ -154,7 +154,7 @@ public:
         count = 0;
     }
 
-    U operator[](int position) const {
+    U& operator[](int position) const {
         Node<U>* current = firstNode.get();
         int currentPosition = 0;
 
