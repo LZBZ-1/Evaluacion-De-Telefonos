@@ -33,7 +33,7 @@ public:
     }
 
     void mostrarTelefono(const Telefono& telefono) {
-        cout << "Número: " << telefono.getNumero() << endl;
+        cout << "Numero: " << telefono.getNumero() << endl;
         cout << "Activo: " << (telefono.getActivo() ? "Sí" : "No") << endl;
         cout << "Operadora: " << telefono.getOperadora() << endl;
         cout << "Tipo de Plan: " << telefono.getTipoPlan() << endl;
@@ -117,7 +117,7 @@ public:
 
                 // Obtener Activo
                 getline(ss, dato, ',');
-                bool activo = (dato == "1");
+                bool activo = (dato == "true");
 
                 // Obtener Operadora
                 getline(ss, dato, ',');
