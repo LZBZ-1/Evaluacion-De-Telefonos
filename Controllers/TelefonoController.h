@@ -34,7 +34,7 @@ public:
 
     void mostrarTelefono(const Telefono& telefono) {
         cout << "Numero: " << telefono.getNumero() << endl;
-        cout << "Activo: " << (telefono.getActivo() ? "Sí" : "No") << endl;
+        cout << "Activo: " << (telefono.getActivo() ? "Si" : "No") << endl;
         cout << "Operadora: " << telefono.getOperadora() << endl;
         cout << "Tipo de Plan: " << telefono.getTipoPlan() << endl;
         cout << endl;
