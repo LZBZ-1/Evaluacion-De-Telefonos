@@ -15,6 +15,9 @@ int main() {
     string plan;
     Telefono telefono;
     Usuario usuario;
+    usuarios.cargarUsuariosDesdeArchivo();
+	telefonos.cargarTelefonosDesdeArchivo();
+	control.cargarNumeros(usuarios,telefonos);
 
     do {
         cout << "----- Menu Principal -----" << endl;
@@ -41,13 +44,14 @@ int main() {
                     switch (opcionSubMenu) {
                         case 1:
                             do {
-        						cout << "Ingrese su numero ";
+        						cout << "Ingrese su numero: ";
         						cin >> numero;
 
         						if (numero < 900000000 || numero > 999999999) {
             						cout << "Numero No Valida." << endl;
         						}
     						} while (numero < 900000000 || numero > 999999999);
+							cout << endl;
 							mostrarTitular(numero);
                             break;
                         case 2:
@@ -124,13 +128,13 @@ int main() {
 							activarLinea(numero);
                             break;    
                         case 6:
-                        	system("clear");
+                        	system("cls");
                             cout << "Volviendo al menu principal." << endl;
                             system("pause");
-                            system("clear");
+                            system("cls");
                             break;
                         default:
-                        	system("clear");
+                        	system("cls");
                             cout << "Opción invalida. Por favor, ingrese una opcion válida." << endl;
                             break;
                     }
@@ -174,11 +178,11 @@ int main() {
     						mostrarLineas(dni);
                 			break;
             			case 3:
-            				system("clear");
+            				system("cls");
                 			cout << "Volviendo al menu principal." << endl;
                             break;
             			default:
-            				system("clear");
+            				system("cls");
                 			cout << "Opción invalida. Por favor, ingrese una opción valida." << endl;
                 			break;
         			}

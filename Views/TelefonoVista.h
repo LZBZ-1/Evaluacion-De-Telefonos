@@ -11,9 +11,6 @@ UsuarioTelefonoController control;
 
 
 void mostrarTitular(const unsigned int numero) {
-	usuarios.cargarUsuariosDesdeArchivo();
-	telefonos.cargarTelefonosDesdeArchivo();
-	control.cargarNumeros(usuarios,telefonos);
 	if(telefonos.isExist(numero)) {
 		int dni = usuarios.buscarDniPorTelefono(numero);
 		Usuario& usuario = usuarios.buscarUsuario(dni);
@@ -24,9 +21,6 @@ void mostrarTitular(const unsigned int numero) {
 }
 
 void agregarTelefono(const Telefono& telefono) {
-	usuarios.cargarUsuariosDesdeArchivo();
-	telefonos.cargarTelefonosDesdeArchivo();
-	control.cargarNumeros(usuarios,telefonos);
 	if(!telefonos.isExist(telefono.getNumero())) {
 		telefonos.guardarTelefonoEnArchivo(telefono);
 		control.guardarNuevoNumero(telefono);
@@ -36,9 +30,6 @@ void agregarTelefono(const Telefono& telefono) {
 }
 
 void buscarOperador(const unsigned int numero) {
-	usuarios.cargarUsuariosDesdeArchivo();
-	telefonos.cargarTelefonosDesdeArchivo();
-	control.cargarNumeros(usuarios,telefonos);
 	if(telefonos.isExist(numero)){
 		telefonos.mostrarTelefono(telefonos.buscarTelefono(numero));
 	} else {
@@ -51,6 +42,7 @@ void desactivarLinea(const unsigned int numero) {
 		if(telefonos.buscarTelefono(numero).getActivo()) {
 			telefonos.buscarTelefono(numero).setActivo(false);
 			cout << "El numero se ha desactivado" << endl;
+			telefonos.actualizarArchivoCSV();
 		} else {
 			cout << "El numero ya esta desactivado" << endl;
 		}
@@ -64,6 +56,7 @@ void activarLinea(const unsigned int numero) {
 		if(!telefonos.buscarTelefono(numero).getActivo()) {
 			telefonos.buscarTelefono(numero).setActivo(true);
 			cout << "El numero se ha activado." << endl;
+			telefonos.actualizarArchivoCSV();
 		} else {
 			cout << "El numero ya esta activo" << endl;
 		}

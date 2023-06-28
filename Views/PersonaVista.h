@@ -6,9 +6,6 @@
 using namespace std;
 
 void agregarUsuario(const Usuario& usuario) {
-	usuarios.cargarUsuariosDesdeArchivo();
-	telefonos.cargarTelefonosDesdeArchivo();
-	control.cargarNumeros(usuarios,telefonos);
 	if (usuarios.isExist(usuario.getDni())){
 		cout << "El usuario ya existe" << endl;
 	} else {
@@ -17,9 +14,6 @@ void agregarUsuario(const Usuario& usuario) {
 }
 
 void mostrarLineas(const unsigned int dni) {
-	usuarios.cargarUsuariosDesdeArchivo();
-	telefonos.cargarTelefonosDesdeArchivo();
-	control.cargarNumeros(usuarios,telefonos);
 	if(usuarios.isExist(dni)) {
 		Usuario& usuario = usuarios.buscarUsuario(dni);
 		List<unsigned int>& telefonosEncontrado = usuario.getNumeroTelefono();
