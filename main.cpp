@@ -171,10 +171,10 @@ int main() {
         						cout << "Ingrese el dni: ";
         						cin >> dni;
 
-        						if (numero <= 10000000 || numero >= 99999999) {
+        						if (dni < 10000000 || dni > 99999999) {
             						cout << "DNI No Valida." << endl;
         						}
-    						} while (numero <= 10000000 || numero >= 99999999);
+    						} while (dni < 10000000 || dni > 99999999);
     						mostrarLineas(dni);
                 			break;
             			case 3:
