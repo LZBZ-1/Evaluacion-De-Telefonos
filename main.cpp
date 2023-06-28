@@ -67,10 +67,10 @@ int main() {
         						cout << "Ingrese el dni: ";
         						cin >> dni;
 
-        						if (numero < 10000000 || numero > 99999999) {
+        						if (dni < 10000000 || dni > 99999999) {
             						cout << "DNI No Valida." << endl;
         						}
-    						} while (numero < 10000000 || numero > 99999999);
+    						} while (dni < 10000000 || dni > 99999999);
     						cout << "Ingrese su Nombre: " << endl;
     						getline(cin, nombre, '\n');
     						usuario.setDni(dni);
@@ -145,7 +145,7 @@ int main() {
                 do {
         			cout << "----- Menu -----" << endl;
 			        cout << "1. Crear usuario" << endl;
-			        cout << "2. Mostrar teléfono" << endl;
+			        cout << "2. Mostrar telefono" << endl;
 			        cout << "3. Salir" << endl;
         			cout << "Ingrese su opcion: ";
         			cin >> opcion;
@@ -156,10 +156,10 @@ int main() {
         						cout << "Ingrese el dni: ";
         						cin >> dni;
 
-        						if (numero < 10000000 || numero > 99999999) {
+        						if (dni < 10000000 || dni > 99999999) {
             						cout << "DNI No Valida." << endl;
         						}
-    						} while (numero < 10000000 || numero > 99999999);
+    						} while (dni < 10000000 || dni > 99999999);
     						cout << "Ingrese su Nombre: ";
     						getline(cin, nombre, '\n');
     						usuario.setDni(dni);
