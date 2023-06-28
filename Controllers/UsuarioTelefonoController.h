@@ -52,4 +52,15 @@ public:
             cout << "Error al abrir el archivo " << nombreArchivo << endl;
         }
 	}
+
+    void guardarNuevoNumero(const Telefono& telefono) {
+        const string nombreArchivo = "C:\\Users\\jalb2\\OneDrive\\Documentos\\GitHub\\Evaluacion-De-Telefonos\\Data\\usuarioTelefono.csv";
+        ofstream archivo(nombreArchivo, ios_base::app);
+        if(archivo.is_open()) {
+            archivo << telefono.getDniUsuario() << "," << telefono.getNumero() << endl;
+            archivo.close();
+        } else {
+            cout << "No se pudo guardarel archivo " << nombreArchivo << endl;
+        }
+    }
 };

@@ -22,6 +22,16 @@ public:
         guardarTelefonoEnArchivo(telefono);
     }
 
+    bool isExist(int numero) {
+        for(int i = 0; i < telefonos.size(); i++) {
+            if(numero == telefonos[i].getNumero()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void mostrarTelefono(const Telefono& telefono) {
         cout << "Número: " << telefono.getNumero() << endl;
         cout << "Activo: " << (telefono.getActivo() ? "Sí" : "No") << endl;

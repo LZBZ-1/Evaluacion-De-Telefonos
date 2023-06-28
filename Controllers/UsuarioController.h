@@ -23,6 +23,16 @@ public:
         guardarUsuarioEnArchivo(usuario);
     }
 
+    bool isExist(int dni) {
+        for(int i = 0; i < usuarios.size(); i++) {
+            if(dni == usuarios[i].getDni()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void mostrarUsuarios(Usuario& usuario) {
         cout << "DNI: " << usuario.getDni() << endl;
         cout << "Nombre y Apellido: " << usuario.getNombreApellido() << endl;
