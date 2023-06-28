@@ -1,4 +1,5 @@
-#include "../Library/List"
+#pragma once
+#include "../Library/List.h"
 
 using namespace std;
 

@@ -40,7 +40,7 @@ public:
         return firstNode == nullptr;
     }
 
-    void push_back(U value) {
+    void push_back(U& value) {
         auto newNode = make_unique<Node<U>>();
         newNode->data = value;
         if (isEmpty()) {

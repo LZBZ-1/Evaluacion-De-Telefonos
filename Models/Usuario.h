@@ -1,4 +1,6 @@
-#include "../Library/List"
+#pragma once
+#include "../Library/List.h"
+#include <memory>
 
 using namespace std;
 
@@ -11,20 +13,20 @@ private:
 public:
     // Constructor por defecto
     Usuario() = default;
+    // Destructor
+    ~Usuario() = default;
 
     // Constructor con todos los datos
-    Usuario(unsigned int dni, const string& nombreApellido, const List<unsigned int>& numeroTelefono) :
-        dni(dni),
-        nombreApellido(nombreApellido),
-        numeroTelefono(numeroTelefono) {}
+    Usuario(unsigned int dni, const string& nombreApellido, List<unsigned int>& numeroTelefono) {
+            this->dni = dni;
+            this->nombreApellido = nombreApellido;
+            this->numeroTelefono = std::move(numeroTelefono);
+        }
 
     // Constructor sin números de teléfono
     Usuario(unsigned int dni, const string& nombreApellido) :
         dni(dni),
         nombreApellido(nombreApellido) {}
-
-    // Destructor
-    ~Usuario() = default;
 
     // Getters y Setters
     unsigned int getDni() const {
@@ -43,7 +45,7 @@ public:
         this->nombreApellido = nombreApellido;
     }
 
-    List<unsigned int> getNumeroTelefono() const {
+    List<unsigned int>& getNumeroTelefono() {
         return numeroTelefono;
     }
 

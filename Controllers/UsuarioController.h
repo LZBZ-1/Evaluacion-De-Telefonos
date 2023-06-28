@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <exception>
@@ -14,12 +15,12 @@ public:
     UsuarioController() = default;
     ~UsuarioController() = default;
 
-    void agregarUsuario(const Usuario& usuario) {
+    void agregarUsuario(Usuario& usuario) {
         usuarios.push_back(usuario);
         guardarUsuarioEnArchivo(usuario);
     }
 
-    void mostrarUsuarios(const auto& usuario) {
+    void mostrarUsuarios(Usuario& usuario) {
         cout << "DNI: " << usuario.getDni() << endl;
         cout << "Nombre y Apellido: " << usuario.getNombreApellido() << endl;
         cout << "Sus lineas telefonicas son: " << endl;
@@ -29,7 +30,7 @@ public:
         cout << endl;
     }
 
-    Usuario& buscarUsuario(const unsigned int dni) {
+    const Usuario& buscarUsuario(const unsigned int dni) {
         for(int i = 0; i < usuarios.size(); i++) {
             if (usuarios[i].getDni() == dni) {
                 return usuarios[i];
@@ -107,7 +108,7 @@ public:
                 unsigned int dni = stoi(dato);
 
                 // Obtener Nombre y Apellido
-                getline(ss, dato, '');
+                getline(ss, dato, '\n');
                 string nombreApellido = dato;
 
                 // Crear usuario y agregarlo a la lista
